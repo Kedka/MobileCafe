@@ -2,9 +2,11 @@ package com.example.mobilecafe;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,10 +23,25 @@ public abstract class ProductDatabase extends RoomDatabase {
         if(INSTANCE == null){
             synchronized (ProductDatabase.class){
                 if (INSTANCE == null){
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), ProductDatabase.class, "product_db").build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), ProductDatabase.class, "product_db").addCallback(sRoomDatabaseCallback).build();
                 }
             }
         }
         return INSTANCE;
     }
+
+    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db){
+            super.onOpen(db);
+            databaseWriterExecutor.execute(() ->{
+                ProductDao dao = INSTANCE.productDao();
+                dao.deleteAll();
+
+                Product product = new Product("Latte", "500ml");
+                dao.insert(product);
+                dao.insert(product);
+            });
+        }
+    };
 }

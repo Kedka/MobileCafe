@@ -1,12 +1,19 @@
 package com.example.mobilecafe;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "product")
 public class Product {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
     private String size;
+
+    public Product(String name, String size){
+        this.name = name;
+        this.size = size;
+    }
 
     public int getId() {
         return id;
