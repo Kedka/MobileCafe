@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ProductViewModel productViewModel;
     private Product productToOrder = null;
 
-    private Order order = new Order();
+    static Order order = new Order();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,30 +66,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageView cartImageView = findViewById(R.id.cart_image_view);
+        //ImageView cartImageView = findViewById(R.id.cart_image_view);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
 //        //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+        switch(id){
+
+            case R.id.action_settings:
+                Intent intent = new Intent(MainActivity.this, OrderView.class);
+                startActivity(intent);
+                return true;
+
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
+
+
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -186,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        void setProducts(List<Product> books){
-            this.products = books;
+        void setProducts(List<Product> products){
+            this.products = products;
             notifyDataSetChanged();
         }
     }
