@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +33,16 @@ public class MainActivity extends AppCompatActivity {
     private ProductViewModel productViewModel;
     private Product productToOrder = null;
 
+    private Order order = new Order();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,34 +65,59 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setProducts(products);
             }
         });
+
+        ImageView cartImageView = findViewById(R.id.cart_image_view);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        //Order order = new Order();
+        String name = data.getStringExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_NAME);
+        String size = data.getStringExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_SIZE);
+        String price = data.getStringExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_PRICE);
+
+        Log.d("PRODUCT", name + size + price);
+
+        if(requestCode == ADD_TO_ORDER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            //Product product = new Product(data.getStringExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_NAME), data.getStringExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_SIZE), data.getStringExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_PRICE));
+            //Log.d("PRODUCT", product.getName() + product.getSize() + product.getPrice());
+            //Log.d("XD", product);
+            Product product = new Product(name, size, price);
+            order.addToOrder(product);
+            Snackbar.make(findViewById(R.id.coordinator_layout), getString(R.string.order_updated), Snackbar.LENGTH_LONG).show();
         }
 
-        return super.onOptionsItemSelected(item);
     }
 
     private class ProductHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView productNameTextView;
         private TextView productSizeTextView;
+        private TextView productPriceTextView;
         private Product product;
 
         public ProductHolder (LayoutInflater inflater, ViewGroup parent){
@@ -97,12 +127,14 @@ public class MainActivity extends AppCompatActivity {
 
             productNameTextView = itemView.findViewById(R.id.product_name);
             productSizeTextView = itemView.findViewById(R.id.product_size);
+            productPriceTextView = itemView.findViewById(R.id.product_price);
         }
 
         public void bind(Product product){
             this.product = product;
             productNameTextView.setText(product.getName());
             productSizeTextView.setText(product.getSize());
+            productPriceTextView.setText(product.getPrice());
         }
 
         @Override
@@ -111,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, AddToOrderActivity.class);
             intent.putExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_NAME, product.getName());
             intent.putExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_SIZE, product.getSize());
+            intent.putExtra(AddToOrderActivity.EXTRA_ADD_TO_ORDER_PRICE, product.getPrice());
             startActivityForResult(intent, ADD_TO_ORDER_ACTIVITY_REQUEST_CODE);
         }
 

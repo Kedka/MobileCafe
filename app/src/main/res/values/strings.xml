@@ -4,4 +4,6 @@
     <string name="add_to_order">Add to order?</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
+    <string name="order_updated">Order updated!</string>
+    <string name="cart_string">Your cart: </string>
 </resources>

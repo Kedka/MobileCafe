@@ -7,12 +7,29 @@
     android:layout_height="match_parent"
     android:id="@+id/coordinator_layout">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/cart_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:paddingEnd="@dimen/big_padding"
+            tools:srcCompat="@drawable/ic_cart" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:paddingTop="@dimen/toolbar_padding">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
