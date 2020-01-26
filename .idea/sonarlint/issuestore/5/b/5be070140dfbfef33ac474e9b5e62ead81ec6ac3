@@ -1,2 +1,14 @@
 
-lsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(²Ú±Ž8Âæ‘‚ü-
+nsquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(¡Ë‘Äüÿÿÿÿ8Â“Üëý-
+‚squid:S1450!"_Remove the "productViewModel" field and declare it as a local variable in the relevant methods.(¤ì˜¶ûÿÿÿÿ8‹ˆÌæý-
+isquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(ë­£78²¥¿æý-
+isquid:CommentedOutCodeLineˆ"<This block of commented-out lines of code should be removed.(ä‘´o8êËèý-
+Ksquid:S1604>"(Make this anonymous inner class a lambda(£ô¼Ðùÿÿÿÿ8¶¤Êæý-
+isquid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(äÑþ´8•ñÑíý-
+nsquid:CommentedOutCodeLineW"<This block of commented-out lines of code should be removed.(Ù÷žñùÿÿÿÿ8³¯ìñý-
+nsquid:S1301Z"KReplace this "switch" statement by "if" statements to increase readability.(Ò“ÿšùÿÿÿÿ8Ø¨ðñý-
+lsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(²Ú±Ž8Âæ‘‚ü-
+osquid:CommentedOutCodeLine¡"<This block of commented-out lines of code should be removed.(ÖÔ¾Áûÿÿÿÿ8²¥¿æý-
+isquid:CommentedOutCodeLinel"<This block of commented-out lines of code should be removed.(¿©¯È8Ôáíý-
+Psquid:S1068""2Remove this unused "productToOrder" private field.(‰ÅÛõ8Èƒ™íý-
+nsquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(½èÙñüÿÿÿÿ8Û¤ùðý-

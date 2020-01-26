@@ -1,0 +1,5 @@
+
+jsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(ƒ½¨±úÿÿÿÿ
+{squid:S1450"XRemove the "buttonYes" field and declare it as a local variable in the relevant methods.(ºªàùÿÿÿÿ8¾ÖÈèý-
+usquid:S1450"WRemove the "buttonNo" field and declare it as a local variable in the relevant methods.(àÕ±†8¾ÖÈèý-
+nsquid:CommentedOutCodeLine("<This block of commented-out lines of code should be removed.(þþ£ªþÿÿÿÿ8âá¦êý-
