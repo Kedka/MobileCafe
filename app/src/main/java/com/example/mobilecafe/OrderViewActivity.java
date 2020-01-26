@@ -11,13 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.List;
 
 import static com.example.mobilecafe.MainActivity.order;
 
-public class OrderView extends AppCompatActivity {
+public class OrderViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,16 @@ public class OrderView extends AppCompatActivity {
 
         TextView totalPrice = findViewById(R.id.total_price);
         totalPrice.setText(String.valueOf(order.totalPrice()));
+
+        Button buttonOrder = findViewById(R.id.button_order);
+        buttonOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OrderViewActivity.this, AcceptOrderActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private class ProductHolder extends RecyclerView.ViewHolder{ //implements View.OnClickListener{

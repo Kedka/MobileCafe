@@ -20,9 +20,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         switch(id){
 
             case R.id.action_settings:
-                Intent intent = new Intent(MainActivity.this, OrderView.class);
+                Intent intent = new Intent(MainActivity.this, OrderViewActivity.class);
                 startActivity(intent);
                 return true;
 

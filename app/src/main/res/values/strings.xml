@@ -7,4 +7,8 @@
     <string name="order_updated">Order updated!</string>
     <string name="cart_string">Your cart: </string>
     <string name="total_price">Total price: </string>
+    <string name="latitude">Latitude: </string>
+    <string name="longtitude">Longtitude: </string>
+    <string name="get_location">Get location</string>
+    <string name="accept_order">Accept order</string>
 </resources>
