@@ -54,9 +54,21 @@ public abstract class ProductDatabase extends RoomDatabase {
                 ProductDao dao = INSTANCE.productDao();
                 dao.deleteAll();
 
-                Product product = new Product("Latte", "500ml", "3.0");
+                Product product = new Product("Latte", "500ml", "4.0");
                 dao.insert(product);
-                product = new Product("Iced Frappe", "500ml", "4.5");
+                product = new Product("Frappe", "500ml", "4.5");
+                dao.insert(product);
+                product = new Product("Americano", "250ml", "2.5");
+                dao.insert(product);
+                product = new Product("Espresso", "100ml", "2.0");
+                dao.insert(product);
+                product = new Product("Cappuccino", "250ml", "3.5");
+                dao.insert(product);
+                product = new Product("Flat White", "250ml", "3.5");
+                dao.insert(product);
+                product = new Product("Long Black", "250ml", "3.0");
+                dao.insert(product);
+                product = new Product("Mocha", "500ml", "6.0");
                 dao.insert(product);
             });
         }

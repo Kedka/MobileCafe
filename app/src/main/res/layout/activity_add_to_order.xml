@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddToOrderActivity">
+    tools:context=".AddToOrderActivity"
+    android:background="@color/colorPrimaryLight">
 
     <TextView
         android:layout_width="match_parent"
@@ -17,10 +18,10 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:gravity="center_horizontal">
         <TextView
             android:id="@+id/product_name_order"
             android:layout_width="wrap_content"
@@ -42,23 +43,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:weightSum="1.0">
-
+        android:gravity="center_horizontal">
 
         <Button
             android:id="@+id/button_no"
-            android:layout_weight=".5"
-            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/small_padding"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_no"/>
+            android:text="@string/button_no"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"/>
 
         <Button
             android:id="@+id/button_yes"
-            android:layout_weight=".5"
-            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_yes"/>
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+            android:text="@string/button_yes" />
     </LinearLayout>
 
 </LinearLayout>

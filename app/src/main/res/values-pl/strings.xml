@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Zobacz zamówienie</string>
+    <string name="accept_order">Potwierdź zamówienie</string>
+    <string name="add_to_order">Dodać do zamówienia?</string>
+    <string name="app_name">MobileCafe</string>
+    <string name="button_no">Nie</string>
+    <string name="button_yes">Tak</string>
+    <string name="cart_string">Twój koszyk:</string>
+    <string name="get_location">Lokalizuj</string>
+    <string name="go_to_payment">Przejdź do płatności</string>
+    <string name="journey">Wyobraź sobie, że właśnie wyruszyłeś w magiczną podróż w świat bankowości, a Twoje zamówienie właśnie zostało zrealizowane!</string>
+    <string name="latitude">Szerokość geograficzna:</string>
+    <string name="longtitude">"Długość geograficzna: "</string>
+    <string name="order_updated">Zamówienie zaktualizowane!</string>
+    <string name="total_price">"Całkowita cena: "</string>
+</resources>

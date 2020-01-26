@@ -9,6 +9,8 @@
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/big_padding"
         android:textSize="@dimen/medium_font"
-        android:text="TEST"/>
+        android:text="@string/journey"
+        android:background="@drawable/rounded_corners"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

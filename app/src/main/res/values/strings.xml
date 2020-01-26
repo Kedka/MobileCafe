@@ -12,4 +12,5 @@
     <string name="get_location">Get location</string>
     <string name="accept_order">Accept order</string>
     <string name="go_to_payment">Go to payment</string>
+    <string name="journey">Imagine that you went on a magical journey through all that banking stuff and your order is done!</string>
 </resources>

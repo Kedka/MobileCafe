@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    tools:context=".OrderViewActivity">
+    android:gravity="center_horizontal"
+    tools:context=".OrderViewActivity"
+    android:background="@color/colorPrimaryLight">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/order_view_layout"
@@ -27,11 +28,22 @@
             android:id="@+id/button_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/accept_order"/>
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorAccent"
+            android:text="@string/accept_order"
+            android:textColor="@color/white"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <!--android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/nano_padding"
+        android:layout_marginEnd="@dimen/nano_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -43,12 +55,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:layout_marginStart="@dimen/nano_padding"
+            android:layout_marginTop="@dimen/nano_padding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/total_price"
             android:textSize="@dimen/big_font" />
 
         <TextView
+            android:layout_marginTop="@dimen/nano_padding"
+            android:layout_marginStart="@dimen/small_padding"
             android:id="@+id/total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
