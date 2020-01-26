@@ -1,7 +1,6 @@
 package com.example.mobilecafe;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class Order {
 
@@ -28,5 +27,12 @@ public class Order {
             sum+=Double.valueOf(p.getPrice());
         }
         return sum;
+    }
+
+    public void delete(Product p){
+        order.remove(p);
+    }
+    public void deleteAll(){
+        order.clear();
     }
 }

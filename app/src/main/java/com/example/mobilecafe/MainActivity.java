@@ -1,6 +1,8 @@
 package com.example.mobilecafe;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -9,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +27,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CAMERA;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int ADD_TO_ORDER_ACTIVITY_REQUEST_CODE = 1;
@@ -32,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private Product productToOrder = null;
 
     static Order order = new Order();
+
+    private void requestPermission(){
+        ActivityCompat.requestPermissions(this, new String[]{CAMERA}, 1);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +52,20 @@ public class MainActivity extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 //        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
+
+        requestPermission();
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                if(ActivityCompat.checkSelfPermission(MainActivity.this, CAMERA) != PackageManager.PERMISSION_GRANTED){
+                    return;
+                }
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
             }
         });
 

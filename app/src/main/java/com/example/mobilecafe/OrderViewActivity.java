@@ -78,10 +78,6 @@ public class OrderViewActivity extends AppCompatActivity {
 
 //        @Override
 //        public boolean onLongClick(View v) {
-//            Toast.makeText(
-//                    getApplicationContext(),
-//                    "Book deleted",
-//                    Toast.LENGTH_LONG).show();
 //            bookViewModel.delete(book);
 //            return true;
 //        }
